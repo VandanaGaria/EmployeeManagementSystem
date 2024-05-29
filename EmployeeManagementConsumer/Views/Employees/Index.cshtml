@@ -1,0 +1,43 @@
+﻿@model IEnumerable<employeeManagementAPP.Models.Employee>
+
+<h2>Employees</h2>
+
+<p>
+    <a href="@Url.Action("Create")">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Designation</th>
+            <th>Salary</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Address</td>
+                <td>@item.Phone</td>
+                <td>@item.Email</td>
+                <td>@item.Designation</td>
+                <td>@item.Salary</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.Id })">Edit</a> |
+                    <a href="@Url.Action("Details", new { id = item.Id })">Details</a> |
+                    <a href="@Url.Action("Delete", new { id = item.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
